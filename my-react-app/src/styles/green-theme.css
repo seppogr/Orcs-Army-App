@@ -1,0 +1,499 @@
+/* Green Theme CSS for React Apps
+   - Navbar
+   - Single-select entry list
+   - Buttons
+   - Tables
+*/
+
+/* -----------------------------
+   Theme tokens
+----------------------------- */
+:root {
+    --bg: #0b1410;
+    --surface: #0f1c14;
+    --surface-2: #12261a;
+    --card: #0f2016;
+
+    --text: #e7f4ec;
+    --muted: #b8d4c2;
+
+    --border: rgba(120, 210, 160, 0.18);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+
+    --green-1: #d9ffe9;
+    --green-2: #9af5c0;
+    --green-3: #48d98a;
+    --green-4: #1fbf6d;
+    --green-5: #119a58;
+
+    --danger: #ff5a5f;
+
+    --ring: rgba(72, 217, 138, 0.35);
+    --ring-strong: rgba(72, 217, 138, 0.55);
+
+    --radius: 16px;
+    --radius-sm: 12px;
+    --gap: 12px;
+
+    --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
+        Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* Optional: auto-adjust for light mode users (still green-themed) */
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg: #f4fff8;
+        --surface: #ffffff;
+        --surface-2: #f0fff6;
+        --card: #ffffff;
+
+        --text: #0d2217;
+        --muted: #3b6b52;
+
+        --border: rgba(17, 154, 88, 0.18);
+        --shadow: 0 10px 30px rgba(17, 154, 88, 0.08);
+
+        --ring: rgba(31, 191, 109, 0.25);
+        --ring-strong: rgba(31, 191, 109, 0.35);
+    }
+}
+
+/* -----------------------------
+   Base
+----------------------------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font);
+    background: radial-gradient(1200px 700px at 15% 10%,
+            rgba(72, 217, 138, 0.18),
+            transparent 60%),
+        radial-gradient(900px 600px at 85% 20%,
+            rgba(31, 191, 109, 0.14),
+            transparent 55%),
+        var(--bg);
+    color: var(--text);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+:focus-visible {
+    outline: 0;
+    box-shadow: 0 0 0 4px var(--ring);
+    border-radius: 10px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.card {
+    background: linear-gradient(180deg, var(--surface), var(--card));
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 18px;
+}
+
+.section-title {
+    font-size: 18px;
+    letter-spacing: 0.2px;
+    margin: 0 0 12px;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+/* -----------------------------
+   Navbar
+----------------------------- */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(10px);
+    background: rgba(15, 28, 20, 0.7);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.brand-badge {
+    width: 34px;
+    height: 34px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--green-3), var(--green-5));
+    box-shadow: 0 0 0 6px rgba(72, 217, 138, 0.16);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-link {
+    padding: 9px 12px;
+    border-radius: 12px;
+    color: var(--muted);
+    border: 1px solid transparent;
+    transition: 160ms ease;
+}
+
+.nav-link:hover {
+    color: var(--text);
+    border-color: var(--border);
+    background: rgba(72, 217, 138, 0.08);
+}
+
+.nav-link.active {
+    color: var(--text);
+    border-color: rgba(72, 217, 138, 0.35);
+    background: rgba(72, 217, 138, 0.12);
+}
+
+/* -----------------------------
+   Buttons
+----------------------------- */
+.btn {
+    appearance: none;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    padding: 10px 14px;
+    font-weight: 650;
+    letter-spacing: 0.15px;
+    cursor: pointer;
+    transition: 160ms ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    user-select: none;
+}
+
+.btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.btn-primary {
+    color: #072012;
+    background: linear-gradient(135deg, var(--green-2), var(--green-4));
+    box-shadow: 0 10px 18px rgba(31, 191, 109, 0.22);
+    margin-right: 10px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 26px rgba(31, 191, 109, 0.28);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-secondary {
+    color: var(--text);
+    background: rgba(72, 217, 138, 0.10);
+    border-color: rgba(72, 217, 138, 0.22);
+}
+
+.btn-secondary:hover {
+    background: rgba(72, 217, 138, 0.14);
+    border-color: rgba(72, 217, 138, 0.34);
+}
+
+.btn-ghost {
+    color: var(--text);
+    background: transparent;
+    border-color: var(--border);
+}
+
+.btn-ghost:hover {
+    background: rgba(72, 217, 138, 0.08);
+}
+
+.btn-danger {
+    color: #260607;
+    background: linear-gradient(135deg, #ff8a8f, var(--danger));
+    border-color: rgba(255, 90, 95, 0.35);
+}
+
+/* Small icon button */
+.icon-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 14px;
+    padding: 0;
+}
+
+/* -----------------------------
+   Single-select Entry List
+----------------------------- */
+.entry-list {
+    display: grid;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.entry {
+    margin-bottom: 5px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: rgba(18, 38, 26, 0.55);
+    overflow: hidden;
+    transition: 160ms ease;
+}
+
+.entry:hover {
+    border-color: rgba(72, 217, 138, 0.35);
+    background: rgba(72, 217, 138, 0.08);
+}
+
+.entry-btn {
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+    padding: 14px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.entry-main {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.entry-title {
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.entry-meta {
+    color: var(--muted);
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Selection indicator (radio-like) */
+.entry-indicator {
+    flex: 0 0 auto;
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    border: 2px solid rgba(154, 245, 192, 0.65);
+    box-shadow: 0 0 0 6px rgba(72, 217, 138, 0.10);
+    position: relative;
+}
+
+.entry.is-selected {
+    border-color: rgba(72, 217, 138, 0.55);
+    background: rgba(72, 217, 138, 0.12);
+}
+
+.entry.is-selected .entry-indicator {
+    border-color: rgba(72, 217, 138, 0.9);
+}
+
+.entry.is-selected .entry-indicator::after {
+    content: "";
+    position: absolute;
+    inset: 3px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--green-2), var(--green-4));
+}
+
+.entry.is-selected .entry-title {
+    color: var(--green-1);
+}
+
+/* Optional: compact list */
+.entry-list.compact .entry-btn {
+    padding: 10px 12px;
+}
+
+.entry-list.compact .entry-meta {
+    display: none;
+}
+
+/* -----------------------------
+   Tables
+----------------------------- */
+.table-wrap {
+    width: 100%;
+    overflow: auto;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: rgba(18, 38, 26, 0.45);
+}
+
+.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 640px;
+    /* allows horizontal scroll on small screens */
+}
+
+.table thead th {
+    position: sticky;
+    top: 0;
+    background: rgba(15, 28, 20, 0.95);
+    backdrop-filter: blur(8px);
+    color: var(--muted);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+}
+
+.table tbody td {
+    padding: 12px 14px;
+    border-bottom: 1px solid rgba(120, 210, 160, 0.12);
+}
+
+.table tbody tr:hover td {
+    background: rgba(72, 217, 138, 0.07);
+}
+
+.table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.table .cell-muted {
+    color: var(--muted);
+}
+
+.table .cell-strong {
+    font-weight: 700;
+}
+
+.table .cell-right {
+    text-align: right;
+}
+
+/* -----------------------------
+   Form inputs (optional, useful with tables & filters)
+----------------------------- */
+.input,
+.select {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: rgba(18, 38, 26, 0.35);
+    color: var(--text);
+    transition: 160ms ease;
+}
+
+.input::placeholder {
+    color: rgba(184, 212, 194, 0.7);
+}
+
+.input:focus,
+.select:focus {
+    outline: 0;
+    box-shadow: 0 0 0 4px var(--ring-strong);
+    border-color: rgba(72, 217, 138, 0.45);
+}
+
+/* -----------------------------
+   Layout helpers
+----------------------------- */
+.row {
+    display: flex;
+    gap: var(--gap);
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.spread {
+    justify-content: space-between;
+}
+
+.stack {
+    display: grid;
+    gap: var(--gap);
+}
+
+.divider {
+    height: 1px;
+    background: var(--border);
+    margin: 14px 0;
+}
+
+/* -----------------------------
+   Toast/Alert (optional)
+----------------------------- */
+.alert {
+    border: 1px solid rgba(72, 217, 138, 0.35);
+    background: rgba(72, 217, 138, 0.10);
+    padding: 12px 14px;
+    border-radius: 14px;
+}
+
+.alert-title {
+    font-weight: 800;
+    margin: 0 0 4px;
+}
+
+.alert-body {
+    margin: 0;
+    color: var(--muted);
+}
+
+/* -----------------------------
+   Reduce motion
+----------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}

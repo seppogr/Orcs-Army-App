@@ -1,0 +1,9 @@
+.navbar {
+    background-color: blue;
+    margin: 10px;
+}
+
+.navbar a {
+    color: red;
+    margin-right: 14px;
+}

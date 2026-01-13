@@ -1,42 +1,38 @@
-
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { useState, useParams } from 'react';
-import VeteranOrcs from './data/veteranOrcs';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
 import NavBar from './components/NavBar';
+import ArmyOneUnits from './data/armyOneUnits';
+import ArmyTwoUnits from './data/armyTwoUnits';
+import UnitList from './pages/unitList';
+import SpecialRules from './data/specialRules';
+import MagicItems from './data/magicItems';
+import Mounts from './data/mounts';
+import "./styles/basic.css";
+import './App.css';
+import UnitView from './pages/unitView';
 import Home from './pages/home';
-import VeteranOrcsView from './pages/veteranOrcsView';
-
-import './App.css'
-import Unruly from './pages/rules/unruly';
-
 
 function App() {
-const [veteranOrcs, setVeteranOrcs] = useState(VeteranOrcs);
-
-
-
-
+  const [units, setUnits ] = useState(ArmyOneUnits);
+  //const [view, setView] = useState("/");
+  const [specialRules, setspecialRules] = useState(SpecialRules);
+  const [ magicItems, setMagicItems] = useState(MagicItems);
+  const [mounts, setMounts] = useState(Mounts);
 
   return (
-    <>
 
-
-        <Router>
-        < NavBar />
-        <div>
-
-
-          </div>
-          <Routes>
-
-          <Route path="/veteranOrcsView" element={<VeteranOrcsView />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/unruly" element={<Unruly />} />
-          </Routes>
-
-        </Router>
-
-    </>
+    <div className='container'>
+      <div className='panel'>
+          <Router>
+            <NavBar setUnits={setUnits} />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/units" element={<UnitList units={units} />} />
+              <Route path="/units/:id" element={<UnitView units={units} specialRules={specialRules} magicItems={magicItems} mounts={mounts} />} />
+            </Routes>
+          </Router>
+      </div>
+    </div>
   )
 }
 

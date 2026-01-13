@@ -1,0 +1,254 @@
+/* Global layout */
+:root {
+    --bg: #0f5f3a;
+    /* green background */
+    --panel: #ffffff;
+    /* card/table background */
+    --text: #0b1b12;
+    --muted: #4b5b52;
+    --border: rgba(0, 0, 0, 0.12);
+    --link: #0b3d2e;
+    --btn: #0a7a46;
+    --btn-hover: #086a3d;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+}
+
+/* Optional: a centered content container */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+/* Panels / sections (nice for wrapping tables/lists) */
+section,
+.panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    margin: 16px 0;
+}
+
+/* Tables (aligned columns) */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    /* keeps rounded corners */
+
+    table-layout: fixed;
+    /* KEY: columns align consistently */
+}
+
+th,
+td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    vertical-align: middle;
+
+    overflow: hidden;
+    /* prevent column stretching */
+    text-overflow: ellipsis;
+    /* show ... if too long */
+    white-space: nowrap;
+    /* keeps row height consistent */
+}
+
+/* optional: if you want wrapping instead of ellipsis, use this instead:
+th, td { white-space: normal; word-break: break-word; }
+*/
+
+thead th {
+    font-weight: 700;
+    background: rgba(15, 95, 58, 0.10);
+}
+
+tbody tr:hover {
+    background: rgba(15, 95, 58, 0.06);
+}
+
+/* Optional column alignment helpers */
+th.num,
+td.num {
+    text-align: center;
+}
+
+th.right,
+td.right {
+    text-align: right;
+}
+
+/* Lists */
+ul,
+ol {
+    list-style-type: none;
+    padding-left: 1.25rem;
+    margin: 0.75rem 0;
+}
+
+li {
+    margin: 0.25rem 0;
+}
+
+/* Make links look like buttons (mobile-friendly) */
+a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 10px 14px;
+    border-radius: 10px;
+
+    background: var(--btn);
+    color: #fff;
+
+    text-decoration: none;
+    font-weight: 600;
+
+    border: 1px solid rgba(0, 0, 0, 0.15);
+
+    transition: transform 0.05s ease, background 0.15s ease, opacity 0.15s ease;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+
+    /* helps ensure a decent tap area */
+    min-height: 44px;
+}
+
+a:hover {
+    background: var(--btn-hover);
+    opacity: 1;
+}
+
+a:active {
+    transform: translateY(1px);
+}
+
+a:focus-visible {
+    outline: 3px solid rgba(255, 255, 255, 0.6);
+    outline-offset: 2px;
+}
+
+/* Buttons */
+button,
+.btn,
+.btn-primary {
+    appearance: none;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    background: var(--btn);
+    color: white;
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.05s ease, background 0.15s ease, opacity 0.15s ease;
+    margin-right: 10px;
+}
+
+button:hover,
+.btn:hover,
+.btn-primary:hover {
+    background: var(--btn-hover);
+}
+
+button:active,
+.btn:active,
+.btn-primary:active {
+    transform: translateY(1px);
+}
+
+button:disabled,
+.btn:disabled,
+.btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar__inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 12px 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.navbar__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    font-weight: 800;
+    letter-spacing: 0.2px;
+    text-decoration: none;
+    color: var(--text);
+}
+
+.navbar__brand:hover {
+    opacity: 0.9;
+}
+
+.navbar__links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.navbar__link {
+    text-decoration: none;
+    color: var(--text);
+
+    padding: 8px 10px;
+    border-radius: 10px;
+
+    border: 1px solid transparent;
+}
+
+.navbar__link:hover {
+    background: rgba(15, 95, 58, 0.10);
+    border-color: rgba(15, 95, 58, 0.18);
+}
+
+.navbar__link.active,
+.navbar__link[aria-current="page"] {
+    background: rgba(15, 95, 58, 0.16);
+    border-color: rgba(15, 95, 58, 0.25);
+    font-weight: 700;
+}

@@ -1,17 +1,24 @@
 import { Link } from 'react-router-dom';
-// import styles from '../styles/NavBar.module.css'
+import { useNavigate } from 'react-router-dom';
+import ArmyOneUnits from '../data/armyOneUnits';
+import ArmyTwoUnits from '../data/armyTwoUnits';
 
-function Navbar() {
+function NavBar({setUnits}) {
+    const navigate = useNavigate();
+    const showView = (army) => {
+    setUnits(army);
+    navigate("/units");
+}
+
     return (
-        <div >
+        <div className="navbar">
             <nav>
-                <Link to="/" style={{ color: 'red', margin: '10px' }}>Home</Link>
-                <Link to="/veteranOrcsView" style={{ color: 'red', margin: '10px' }}>Veteran Orcs</Link>
-                <Link to="/contactList" style={{ color: 'red', margin: '10px' }}>My Contacts</Link>
+                <button type="button" className="navbtn" onClick={() => showView(ArmyOneUnits)}>Army 1</button>
+                <button type="button" className="navbtn" onClick={() => showView(ArmyTwoUnits)}>Army 2</button>
+
             </nav>
         </div>
     );
 }
 
-export default Navbar
-
+export default NavBar
