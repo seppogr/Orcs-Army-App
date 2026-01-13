@@ -15,7 +15,7 @@ function NavBar({setUnits}) {
             <nav>
                 <button type="button" className="navbtn" onClick={() => showView(ArmyOneUnits)}>Army 1</button>
                 <button type="button" className="navbtn" onClick={() => showView(ArmyTwoUnits)}>Army 2</button>
-
+                <Link to="/reference" >Reference</Link>
             </nav>
         </div>
     );

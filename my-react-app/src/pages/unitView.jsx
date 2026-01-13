@@ -2,19 +2,16 @@ import { useParams } from "react-router-dom";
 import StatsTable from "../components/statsTable";
 
 
-function UnitView( {units, specialRules, magicItems, mounts} ) {
-
+function UnitView( {units, specialRules, magicItems, mounts, spells} ) {
 
     const { id } = useParams();
     let singleUnit = {};
 
-        units.forEach(unit => {
-            if (String(unit.id) === id) {
-                singleUnit = unit;
+    units.forEach(unit => {
+        if (String(unit.id) === id) {
+            singleUnit = unit;
             }
         });
-
-
 
     const singleUnitSpecialRules = singleUnit.specials;
     const unitRules = specialRules.filter(data => singleUnitSpecialRules.includes(data.rule));
@@ -28,6 +25,13 @@ function UnitView( {units, specialRules, magicItems, mounts} ) {
         items = Object.entries(unitItems);
     }
 
+    let characterSpells = null;
+    const singleCharacterSpells = singleUnit.spells;
+
+    if (singleCharacterSpells.length > 0) {
+        const unitSpells = spells.filter(data => singleCharacterSpells.includes(data.name));
+        characterSpells = Object.entries(unitSpells);
+    }
 
     let unitMount = null;
     let mountRuleArray;
@@ -44,6 +48,21 @@ function UnitView( {units, specialRules, magicItems, mounts} ) {
         alert(ruleData);
     }
 
+    const spellAlert = (spellData) => {
+        const compiledAlert =
+        `Effect: ${spellData.effect}
+CV: ${spellData.cv}
+Duration: ${spellData.duration}
+Range: ${spellData.range}"
+Type: ${spellData.d_or_a}
+        ${spellData.missile}
+        ${spellData.replicable}
+        `;
+
+        alert(compiledAlert);
+
+    }
+
     return (
         <>
             {StatsTable(singleUnit)}
@@ -56,23 +75,30 @@ function UnitView( {units, specialRules, magicItems, mounts} ) {
                 ))}
             </div>
 
-{items && (
-    <>
+            {items && (
+                <>
                     <div>
                         <h3>Magic Items:</h3>
                         {items.map(([name, data]) => (
-                            <button className="btn-primary" key={name} onClick={() => rulesAlert(data.description)} >{data.name}
-                            </button>
+                        <button className="btn-primary" key={name} onClick={() => rulesAlert(data.description)} >{data.name}</button>
                         ))}
                     </div>
-    </>
-)}
+                </>
+            )}
 
+            {characterSpells && (
+                <>
+                    <div>
+                        <h3>Spells:</h3>
+                        {characterSpells.map(([name, data]) => (
+                        <button className="btn-primary" key={name} onClick={() => spellAlert(data)} >{data.name}</button>
+                        ))}
+                    </div>
+                </>
+            )}
 
-
-
-{unitMount && (
-    <>
+            {unitMount && (
+                <>
                     <div>
                         <h2>Mount</h2>
                         {StatsTable(unitMount)}
@@ -81,12 +107,11 @@ function UnitView( {units, specialRules, magicItems, mounts} ) {
                     <div>
                         <h3>Mount Special Rules:</h3>
                         {mountRuleArray.map(([name, data]) => (
-                            <button className="btn-primary" key={name} onClick={() => rulesAlert(data.effect)} >{data.rule}
-                            </button>
+                            <button className="btn-primary" key={name} onClick={() => rulesAlert(data.effect)} >{data.rule}</button>
                         ))}
                     </div>
-    </>
-)}
+                </>
+            )}
 
         </>
     )

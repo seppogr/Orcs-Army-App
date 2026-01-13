@@ -12,7 +12,6 @@ function UnitList({units}) {
                         <Link to={`/units/${singleUnit.id}`}>
                             {singleUnit.name} <br />
                         </Link>
-
                     </li>
                 ))}
             </ul>

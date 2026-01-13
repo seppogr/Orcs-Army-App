@@ -17,6 +17,7 @@ function ArmyTwoUnits() {
         agi: 0,
         specials: ["SpecRule1", "SpecRule2"],
         magicItems: [],
+        spells: ["Fireball", "Flaming Swords"],
         mount: "Wyvern",
     },
     {
@@ -37,6 +38,7 @@ function ArmyTwoUnits() {
         agi: 1,
         specials: ["SpecRule2", "SpecRule3"],
         magicItems: ["SpecItem2"],
+        spells: [],
         mount: "",
 
     },
@@ -58,6 +60,7 @@ function ArmyTwoUnits() {
         agi: 2,
         specials: ["SpecRule1", "SpecRule3"],
         magicItems: ["SpecItem1", "SpecItem2", "SpecItem3"],
+        spells: [],
         mount: "Horse",
     }];
 

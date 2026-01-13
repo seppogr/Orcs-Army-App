@@ -33,7 +33,7 @@ function StatsTable(unit) {
                 <table className="table">
                     <thead>
                         <tr>
-                            <th>Defensive:</th>
+                            <th>Defense:</th>
                             <th>HP</th>
                             <th>Def</th>
                             <th>Res</th>
@@ -58,7 +58,7 @@ function StatsTable(unit) {
                 <table className="table">
                     <thead>
                         <tr>
-                            <th>Offensive:</th>
+                            <th>Offence:</th>
                             <th>Att</th>
                             <th>Off</th>
                             <th>Str</th>

@@ -9,6 +9,7 @@ function SpecialRules () {
         {rule: "WyvernRule2", effect: "More Wyvern"},
         {rule: "BoarRule1", effect: "Boar"},
         {rule: "BoarRule2", effect: "Moar Boar"},
+        {rule: "Flying", effect: "FLY!!!"},
     ];
     return specialRules;
 }

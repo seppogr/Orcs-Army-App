@@ -7,17 +7,20 @@ import UnitList from './pages/unitList';
 import SpecialRules from './data/specialRules';
 import MagicItems from './data/magicItems';
 import Mounts from './data/mounts';
+import Spells from './data/spells';
 import "./styles/basic.css";
 import './App.css';
 import UnitView from './pages/unitView';
 import Home from './pages/home';
+import Reference from './pages/reference';
 
 function App() {
   const [units, setUnits ] = useState(ArmyOneUnits);
-  //const [view, setView] = useState("/");
   const [specialRules, setspecialRules] = useState(SpecialRules);
   const [ magicItems, setMagicItems] = useState(MagicItems);
   const [mounts, setMounts] = useState(Mounts);
+  const [spells, setSpells] = useState(Spells);
+
 
   return (
 
@@ -27,8 +30,9 @@ function App() {
             <NavBar setUnits={setUnits} />
             <Routes>
               <Route path="/" element={<Home />} />
+            <Route path="/reference" element={<Reference specialRules={specialRules} />} />
               <Route path="/units" element={<UnitList units={units} />} />
-              <Route path="/units/:id" element={<UnitView units={units} specialRules={specialRules} magicItems={magicItems} mounts={mounts} />} />
+              <Route path="/units/:id" element={<UnitView units={units} specialRules={specialRules} magicItems={magicItems} mounts={mounts} spells={spells} />} />
             </Routes>
           </Router>
       </div>
