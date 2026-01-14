@@ -4,16 +4,15 @@ function StatsTable(unit) {
         <>
             <div>
                 <h2>{unit.name}</h2>
-                <h3>Height: {unit.height} Base: {unit.base}</h3>
                 <table className="table">
                     <thead>
                         <tr>
                             <th>Global:</th>
                             <th>Cha/Mob</th>
                             <th>Dis</th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
+                            <th>Height</th>
+                            <th>Base</th>
+                            <th>Scoring</th>
                         </tr>
                     </thead>
 
@@ -22,9 +21,9 @@ function StatsTable(unit) {
                             <td></td>
                             <td>{unit.cha_mob}"</td>
                             <td>{unit.dis}</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{unit.height}</td>
+                            <td>{unit.base}</td>
+                            <td>{unit.scoring}</td>
                         </tr>
                     </tbody>
                 </table>

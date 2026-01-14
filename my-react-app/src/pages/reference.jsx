@@ -3,8 +3,12 @@ function Reference(specialRules) {
         <div>
             {specialRules.specialRules.map((specialRule) => (
                 <div key={specialRule.rule}>
-                    <h3>{specialRule.rule}</h3 >
-                    {specialRule.effect}
+                    <ul className="green-list">
+                        <li>
+                            <span style={{fontWeight: "bold"}}>{specialRule.rule}:</span>
+                           {specialRule.effect}
+                        </li>
+                    </ul>
                 </div>
             ))}
         </div>

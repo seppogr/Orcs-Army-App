@@ -9,7 +9,7 @@ function UnitList({units}) {
             <ul>
                 {units.map((singleUnit) => (
                     <li className="entry" key={singleUnit.id}>
-                        <Link to={`/units/${singleUnit.id}`}>
+                        <Link className="btnlike" to={`/units/${singleUnit.id}`}>
                             {singleUnit.name} <br />
                         </Link>
                     </li>
