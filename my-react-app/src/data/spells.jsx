@@ -24,7 +24,7 @@ function Spells () {
             range: 18,
             replicable: "",
             duration: "One Turn",
-            effect: "The target gains +1 to wound, Flaming Attacks(Melee & Shooting) and Magical Attacks(Melee & Shooting)."
+            effect: "The target gains +1 to wound, Flaming Attacks (Melee & Shooting) and Magical Attacks (Melee & Shooting)."
         }
     ];
 

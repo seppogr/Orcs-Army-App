@@ -1,15 +1,18 @@
+
 function SpecialRules () {
     const specialRules = [
-        {rule: "SpecRule1", effect: "Special" },
-        {rule: "SpecRule2", effect: "More special" },
-        {rule: "SpecRule3", effect: "Most Special" },
-        {rule: "HorseRule1", effect: "Horse"},
-        {rule: "HorseRule2", effect: "More Horse"},
-        {rule: "WyvernRule1", effect: "Wyvern"},
-        {rule: "WyvernRule2", effect: "More Wyvern"},
-        {rule: "BoarRule1", effect: "Boar"},
-        {rule: "BoarRule2", effect: "Moar Boar"},
-        {rule: "Flying", effect: "FLY!!!"},
+        { rule: "Brood Rivalry", effect: "Special" },
+        { rule: "Disciplined", effect: "Special" },
+        { rule: "Exclusive", effect: "More special" },
+        { rule: "Fearless", effect: "Most Special" },
+        { rule: "Fury", effect: "Horse"},
+        { rule: "General", effect: "More Horse"},
+        { rule: "Great Weapon", effect: "Wyvern"},
+        { rule: "Metal Armour", effect: "More Wyvern"},
+        { rule: "Orc", effect: "Boar"},
+        { rule: "Orc Horde", effect: "Moar Boar"},
+        { rule: "Tribe Leader", effect: "FLY!!!"},
+        { rule: "Unruly", effect: "FLY!!!"},
     ];
     return specialRules;
 }

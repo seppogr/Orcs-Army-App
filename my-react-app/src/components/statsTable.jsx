@@ -4,6 +4,7 @@ function StatsTable(unit) {
         <>
             <div>
                 <h2>{unit.name}</h2>
+                <h3>{unit.type}</h3>
                 <table className="table">
                     <thead>
                         <tr>
