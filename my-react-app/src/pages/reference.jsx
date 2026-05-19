@@ -6,7 +6,7 @@ function Reference(specialRules) {
                     <ul className="green-list">
                         <li>
                             <span style={{fontWeight: "bold"}}>{specialRule.rule}:</span>
-                           {specialRule.effect}
+                            {specialRule.effect}
                         </li>
                     </ul>
                 </div>

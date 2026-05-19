@@ -1,7 +1,7 @@
 function Home() {
     return (
         <>
-        <h1>Badlands Campaign Army App</h1>
+        <h1>Highborn Elf Army List</h1>
         </>
     )
 }

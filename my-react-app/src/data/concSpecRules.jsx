@@ -1,0 +1,45 @@
+function ConcSpecialRules () {
+    const csr = [
+        { rule: "Disciplined", effect: "Minimise Command Tests." },
+        { rule: "Fly", effect: "Ignores units and most terrain while moving." },
+        { rule: "Solitary", effect: "Cannot join units or be joined." },
+        { rule: "Strider (Water Terrain)", effect: "Ignores most Water Terrain effects." },
+        { rule: "Swiftstride", effect: "Maximise Charge, Flee, and Pursue rolls." },
+        { rule: "Light Lance", effect: "On the charge: +1 Str, +1 AP." },
+        { rule: "Elf", effect: "" },
+        { rule: "Light Armour", effect: "" },
+        { rule: "Beast", effect: "" },
+        { rule: "Impact Hits (D6 hits)", effect: "On the charge, inflicts D6 automatic hits at Agi 10." },
+        { rule: "Sky Reaper (3+)", effect: "24\", 4 shots, Str 5, AP 3, Quick to Fire, Aim 3+." },
+        { rule: "Halberd", effect: "+1 Str, +1 AP. Two-Handed." },
+        { rule: "Elven Bolt Thrower (3+)", effect: "48\" bolt shot or volley shot. Aim 3+." },
+        { rule: "Emplacement", effect: "Cannot charge, march, flee, or pursue; can see/shoot all around." },
+        { rule: "Aegis (4+)", effect: "Special Save 4+." },
+        { rule: "Standard Bearer", effect: "+1 Combat Score." },
+        { rule: "Musician", effect: "+1 Discipline for Command Tests; better reforms." },
+        { rule: "Metal Armour", effect: "" },
+        { rule: "Great Weapon", effect: "+2 Str, +2 AP, Agi 0. Two-Handed." },
+        { rule: "Multiple Wounds (2, towards Height 4-5)", effect: "Each unsaved wound causes 2 HP losses vs Height 4-5." },
+        { rule: "Bodyguard (General)", effect: "General gains Stubborn; unit may count as Steadfast." },
+        { rule: "Elven Finesse", effect: "Great Weapon strikes at -1 Agi instead of Agi 0." },
+        { rule: "Lion's Fur", effect: "+1 Arm without mount; +2 Arm vs Shooting." },
+        { rule: "Valiant", effect: "Automatically passes Panic Tests caused by Terror." },
+        { rule: "Strider (Forest)", effect: "Ignores most Forest effects." },
+        { rule: "Spear", effect: "+1 Agi, +1 AP; extra AP vs mounted targets; Fight in Extra Rank." },
+        { rule: "Fight in Extra Rank", effect: "Can make Supporting Attacks from one extra rank." },
+        { rule: "Shield", effect: "+1 Arm; with Hand Weapon grants Parry." },
+        { rule: "Bow (3+)", effect: "24\", 1 shot, Str 3, AP 0, Aim 3+." },
+        { rule: "Stand and Shoot", effect: "May shoot as a charge reaction when charged." },
+        { rule: "Resolute", effect: "" },
+        { rule: "Construct", effect: "" },
+        { rule: "Sky Reaper (1+)", effect: "24\", 4 shots, Str 5, AP 3, Quick to Fire, Aim 1+." },
+        { rule: "Hard Target (1)", effect: "Enemy shooting suffers -1 to hit." },
+        { rule: "Light Troops", effect: "Better reforms; counts as 0 Proper Ranks." },
+        { rule: "General", effect: "Army leader; gains Commanding Presence." },
+        { rule: "Lightning Attacks", effect: "Reroll failed to-wound rolls vs models without Metal Armour." },
+        { rule: "Fleet Officer", effect: "Gains Resolute, Strider (Water Terrain), Lightning Attacks, and possibly Stand and Shoot." }
+    ];
+    return csr;
+}
+
+export default ConcSpecialRules

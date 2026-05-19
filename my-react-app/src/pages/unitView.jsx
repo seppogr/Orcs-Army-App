@@ -54,13 +54,10 @@ function UnitView( {units, specialRules, magicItems, mounts, spells} ) {
 CV: ${spellData.cv}
 Duration: ${spellData.duration}
 Range: ${spellData.range}"
-Type: ${spellData.d_or_a}
-        ${spellData.missile}
-        ${spellData.replicable}
+Type: ${spellData.d_or_a} ${spellData.missile} ${spellData.replicable}
         `;
 
         alert(compiledAlert);
-
     }
 
     return (
@@ -69,7 +66,7 @@ Type: ${spellData.d_or_a}
 
             <div>
                 <h3>Special Rules:</h3>
-                 {rules.map(([name, data]) => (
+                    {rules.map(([name, data]) => (
                     <button className="btn-primary" key={name} onClick={() => rulesAlert(data.effect)} >{data.rule}
                     </button>
                 ))}
